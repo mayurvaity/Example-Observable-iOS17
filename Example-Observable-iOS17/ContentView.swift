@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Observation
 
-class User: ObservableObject {
-    @Published var name: String
-    @Published var jobTitle: String
-    @Published var followerCount: Int
-    @Published var bio: String
+@Observable class User {
+    var name: String
+    var jobTitle: String
+    var followerCount: Int
+    var bio: String
     
     init(name: String, jobTitle: String, followerCount: Int, bio: String) {
         self.name = name
@@ -23,7 +24,7 @@ class User: ObservableObject {
 
 struct ContentView: View {
     
-    @StateObject var user = User(name: "Mayur Vaity",
+    var user = User(name: "Mayur Vaity",
                                  jobTitle: "iOS Dev",
                                  followerCount: 99,
                                  bio: "My bio goes here")
